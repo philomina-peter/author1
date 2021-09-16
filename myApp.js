@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
 console.log("Hello world");
+app.use(function middleware(req,res,next) 
+    {
+        console.log(req.method + " "+ req.path + " - "+ req.ip);
+        next();
+    }); 
 
 app.use(express.static(__dirname + "/public"));
 app.get("/", function(req, res) {
