@@ -35,6 +35,12 @@ app.get("/now",
   });
 }
 );
+app.get("/:word/echo", (req, res) => {
+    const { word } = req.params;
+    res.json({
+      echo: word
+    });
+  });
 
 
 
