@@ -24,7 +24,17 @@ if (process.env.MESSAGE_STYLE === "uppercase") {
     res.json({"message":"Hello json"}); 
 }
 });
-
+app.get("/now",
+(req, res, next) => {
+  req.time = new Date().toString();
+  next();
+},
+(req, res) => {
+  res.send({
+    time: req.time
+  });
+}
+);
 
 
 
